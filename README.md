@@ -1,2 +1,2 @@
-# headliners-admin
-Admin site for pop culture game
+# headliners-mvp
+Demo for website version of a pop culture card game
