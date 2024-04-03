@@ -6,4 +6,6 @@ router.get('/card/playing', model.readOne)
 
 router.put('/card/:id', model.play)
 
+router.post('/card', model.add)
+
 module.exports = router;
