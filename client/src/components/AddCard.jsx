@@ -4,7 +4,8 @@ const AddCard = ({handleAddCard}) => {
   const [venue, setVenue] = useState('');
   const [date, setDate] = useState('');
   const [location, setLocation] = useState('');
-  const [openingActs, setOpeningActs] = useState('');
+  const [openingAct1, setOpeningAct1] = useState('');
+  const [openingAct2, setOpeningAct2] = useState('')
   const [headliner, setHeadliner] = useState('');
 
   return (
@@ -19,13 +20,16 @@ const AddCard = ({handleAddCard}) => {
         <label>Location:</label>
         <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
 
-        <label>Opening Acts:</label>
-        <input type="text" value={openingActs} onChange={(e) => setOpeningActs(e.target.value)} />
+        <label>Opening Act 1:</label>
+        <input type="text" value={openingAct1} onChange={(e) => setOpeningAct1(e.target.value)} />
+
+        <label>Opening Act 2:</label>
+        <input type="text" value={openingAct2} onChange={(e) => setOpeningAct2(e.target.value)} />
 
         <label>Headliner:</label>
         <input type="text" value={headliner} onChange={(e) => setHeadliner(e.target.value)} />
 
-        <input type="submit" value="Submit" onClick={() => handleAddCard(venue, date, location, openingActs, headliner)} />
+        <input type="submit" value="Submit" onClick={() => handleAddCard(venue, date, location, openingAct1, openingAct2, headliner)} />
       </form>
 
 

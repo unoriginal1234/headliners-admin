@@ -33,17 +33,20 @@ function App() {
       });
   };
 
-  const handleAddCard = (venue, date, location, openingActs, headliner) => {
-    console.log(venue)
-    axios.post('/card', { headliner })
+  const handleAddCard = (venue, date, location, openingAct1, openingAct2, headliner) => {
+    axios.post('/card', {
+      venue: venue,
+      date: date,
+      location: location,
+      headliner: headliner,
+      openers: [openingAct1, openingAct2]
+    })
       .then(response => {
         populate();
       })
       .catch(error => {
         console.error('Error adding card:', error);
       });
-
-    event.preventDefault();
     setIsAdding(false);
   }
 
