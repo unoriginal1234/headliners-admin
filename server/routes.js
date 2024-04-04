@@ -8,4 +8,6 @@ router.put('/card/:id', model.play)
 
 router.post('/card', model.add)
 
+router.delete('/card/:id', model.deleteOne)
+
 module.exports = router;

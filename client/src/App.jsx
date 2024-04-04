@@ -33,6 +33,16 @@ function App() {
       });
   };
 
+  const handleDeleteCard = (id) => {
+    axios.delete(`/card/${id}`)
+      .then(response => {
+        populate();
+      })
+      .catch(error => {
+        console.error('Error deleting card:', error);
+      });
+  };
+
   const handleAddCard = (venue, date, location, openingAct1, openingAct2, headliner) => {
     axios.post('/card', {
       venue: venue,
@@ -59,7 +69,7 @@ function App() {
           ADD A CARD
         </button>
 
-        <GameCardsList cardsList={cardsList} handleUpdateCard={handleUpdateCard}/>
+        <GameCardsList cardsList={cardsList} handleUpdateCard={handleUpdateCard} handleDeleteCard={handleDeleteCard}/>
         <p>Delete</p>
       </div>
     );
