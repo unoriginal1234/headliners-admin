@@ -25,13 +25,23 @@ function App() {
 
   const handleUpdateCard = (id) => {
     axios.put(`/card/${id}`)
-      .then(response => {
+      .then((response) => {
         populate()
       })
       .catch(error => {
         console.error('Error updating card:', error);
       });
   };
+
+  const handleUpdatePlayDate = (id, playDate) => {
+    axios.put(`/card/${id}/${playDate}`)
+      .then((response) => {
+        populate()
+      })
+      .catch(error => {
+        console.error('Error updating card:', error);
+      });
+  }
 
   const handleDeleteCard = (id) => {
     axios.delete(`/card/${id}`)
@@ -43,13 +53,14 @@ function App() {
       });
   };
 
-  const handleAddCard = (venue, date, location, openingAct1, openingAct2, headliner) => {
+  const handleAddCard = (venue, date, location, openers, headliner) => {
+    event.preventDefault();
     axios.post('/card', {
       venue: venue,
       date: date,
       location: location,
       headliner: headliner,
-      openers: [openingAct1, openingAct2]
+      openers: openers
     })
       .then(response => {
         populate();
@@ -69,7 +80,7 @@ function App() {
           ADD A CARD
         </button>
 
-        <GameCardsList cardsList={cardsList} handleUpdateCard={handleUpdateCard} handleDeleteCard={handleDeleteCard}/>
+        <GameCardsList cardsList={cardsList} handleUpdateCard={handleUpdateCard} handleDeleteCard={handleDeleteCard} handleUpdatePlayDate={handleUpdatePlayDate}/>
         <p>Delete</p>
       </div>
     );

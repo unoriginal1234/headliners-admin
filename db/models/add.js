@@ -44,7 +44,7 @@ const add = (req, res) => {
           console.log(headliner);
 
           let insertQuery = {
-            text: `INSERT INTO gamecard (venue, headliner, openers, isplaying, hasplayed) VALUES ($1, $2, $3, false, false)`,
+            text: `INSERT INTO gamecard (id, venue, headliner, openers, isplaying, playdate) VALUES (gen_random_uuid (), $1, $2, $3, false, NULL)`,
             values: [venue, headliner, openers]}
 
           client = clientConnect()
@@ -53,7 +53,9 @@ const add = (req, res) => {
             .then(()=> res.status(200).send('inserted'))
             // .then(()=> client.query())
             .then(()=> client.end())
-            .catch((error) => res.status(501).send(error))
+            .catch((error) => {
+              console.log(error)
+              res.status(501).send(error)})
         })
     })
     .catch((error) => {

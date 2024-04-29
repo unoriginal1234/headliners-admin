@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GameCardList = ({cardsList, handleUpdateCard, handleDeleteCard}) => {
+const GameCardList = ({cardsList, handleUpdateCard, handleDeleteCard, handleUpdatePlayDate}) => {
 
   if (cardsList && cardsList.length > 0) {
     return (
@@ -13,13 +13,19 @@ const GameCardList = ({cardsList, handleUpdateCard, handleDeleteCard}) => {
               <th>Venue</th>
               <th>Currently Playing</th>
               <th>Delete</th>
+              <th>Play Date</th>
+              <th>Change Play Date</th>
             </tr>
           </thead>
           <tbody>
             {cardsList.map((card, index) => (
               <tr key={index}>
                 <td>{card.headliner.name}</td>
-                <td>{card.openers[0].name}</td>
+                <td>
+                  {card.openers.map((opener, index) => (
+                    <span key={index}>{index + 1}. {opener.name} </span>
+                  ))}
+                </td>
                 <td>{card.venue.Name}</td>
                 {card.isplaying ? (
                   <td>Y</td>
@@ -30,6 +36,10 @@ const GameCardList = ({cardsList, handleUpdateCard, handleDeleteCard}) => {
                 )}
                 <td>
                   <button onClick={() => handleDeleteCard(card.id)}>Delete</button>
+                </td>
+                <td>{card.playdate}</td>
+                <td>
+                  <input type="date" onChange={(e) => handleUpdatePlayDate(card.id, e.target.value)} />
                 </td>
               </tr>
             ))}

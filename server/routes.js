@@ -5,6 +5,7 @@ router.get('/card', model.readAll)
 router.get('/card/playing', model.readOne)
 
 router.put('/card/:id', model.play)
+router.put('/card/:id/:playDate', model.playDate)
 
 router.post('/card', model.add)
 
