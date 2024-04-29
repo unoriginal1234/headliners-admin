@@ -14,7 +14,7 @@ const {Client} = require('pg');
 
 // DEPLOYED
 
-const connectionString = 'postgresql://postgres:uFCgmeyIdOGSXKclHqMXgDVDKcZcJSQo@monorail.proxy.rlwy.net:27781/railway';
+const connectionString = process.env.CONNECTION_STRING;
 
 function clientConnect() {
   return new Client({
