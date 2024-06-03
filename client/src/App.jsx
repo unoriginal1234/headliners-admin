@@ -81,7 +81,7 @@ function App() {
         </button>
 
         <GameCardsList cardsList={cardsList} handleUpdateCard={handleUpdateCard} handleDeleteCard={handleDeleteCard} handleUpdatePlayDate={handleUpdatePlayDate}/>
-        <p>Delete</p>
+
       </div>
     );
   } else {

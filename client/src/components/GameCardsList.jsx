@@ -11,7 +11,7 @@ const GameCardList = ({cardsList, handleUpdateCard, handleDeleteCard, handleUpda
               <th>Headliner</th>
               <th>Openers</th>
               <th>Venue</th>
-              <th>Currently Playing</th>
+              {/* <th>Currently Playing</th> */}
               <th>Delete</th>
               <th>Play Date</th>
               <th>Change Play Date</th>
@@ -27,17 +27,17 @@ const GameCardList = ({cardsList, handleUpdateCard, handleDeleteCard, handleUpda
                   ))}
                 </td>
                 <td>{card.venue.Name}</td>
-                {card.isplaying ? (
+                {/* {card.isplaying ? (
                   <td>Y</td>
                 ) : (
                   <td>
                     <button onClick={() => handleUpdateCard(card.id)}>Play</button>
                   </td>
-                )}
+                )} */}
                 <td>
                   <button onClick={() => handleDeleteCard(card.id)}>Delete</button>
                 </td>
-                <td>{card.playdate}</td>
+                <td>{card.playdate.slice(0, 10)}</td>
                 <td>
                   <input type="date" onChange={(e) => handleUpdatePlayDate(card.id, e.target.value)} />
                 </td>
