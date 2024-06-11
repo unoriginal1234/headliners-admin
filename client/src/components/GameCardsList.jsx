@@ -37,7 +37,9 @@ const GameCardList = ({cardsList, handleUpdateCard, handleDeleteCard, handleUpda
                 <td>
                   <button onClick={() => handleDeleteCard(card.id)}>Delete</button>
                 </td>
-                <td>{card.playdate.slice(0, 10)}</td>
+                <td>
+                  {card.playdate}
+                </td>
                 <td>
                   <input type="date" onChange={(e) => handleUpdatePlayDate(card.id, e.target.value)} />
                 </td>
